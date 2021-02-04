@@ -17,8 +17,6 @@ class DeleteProductService {
     }
 
     await productsRepository.remove(product);
-
-    await productsRepository.save(product);
   }
 }
 
