@@ -2,7 +2,7 @@ import AppError from '@shared/errors/AppError';
 import User from '../typeorm/entities/User';
 import { compare } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
-import { UserRepository } from '../typeorm/repositories/UserRepository';
+import { UsersRepository } from '../typeorm/repositories/UsersRepository';
 import { sign } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 
@@ -18,7 +18,7 @@ interface IResponse {
 
 class CreateSessionService {
   public async execute({ email, password }: IRequest): Promise<IResponse> {
-    const userRepository = getCustomRepository(UserRepository);
+    const userRepository = getCustomRepository(UsersRepository);
 
     const user = await userRepository.findByEmail(email);
 

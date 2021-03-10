@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import Customer from '../typeorm/entities/Customer';
 import { getCustomRepository } from 'typeorm';
-import { CustomerRepository } from '../typeorm/repositories/CustomerRepository';
+import { CustomersRepository } from '../typeorm/repositories/CustomersRepository';
 
 interface IRequest {
   name: string;
@@ -10,7 +10,7 @@ interface IRequest {
 
 class CreateCustomerService {
   public async execute({ name, email }: IRequest): Promise<Customer> {
-    const customerRepository = getCustomRepository(CustomerRepository);
+    const customerRepository = getCustomRepository(CustomersRepository);
 
     const emailExists = await customerRepository.findByEmail(email);
 

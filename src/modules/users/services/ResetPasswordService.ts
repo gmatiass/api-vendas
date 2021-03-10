@@ -2,7 +2,7 @@ import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 import { isAfter, addHours } from 'date-fns';
-import { UserRepository } from '../typeorm/repositories/UserRepository';
+import { UsersRepository } from '../typeorm/repositories/UsersRepository';
 import { UserTokensRepository } from '../typeorm/repositories/UserTokensRepository';
 
 interface IRequest {
@@ -12,7 +12,7 @@ interface IRequest {
 
 class ResetPasswordService {
   public async execute({ token, password }: IRequest): Promise<void> {
-    const userRepository = getCustomRepository(UserRepository);
+    const userRepository = getCustomRepository(UsersRepository);
     const userTokensRepository = getCustomRepository(UserTokensRepository);
 
     const userToken = await userTokensRepository.findByToken(token);
