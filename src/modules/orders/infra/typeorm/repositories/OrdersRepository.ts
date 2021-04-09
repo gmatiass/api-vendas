@@ -13,8 +13,7 @@ interface IRequest {
   products: IProduct[];
 }
 
-@EntityRepository(Order)
-export class OrdersRepository extends Repository<Order> {
+export class OrdersRepository implements IOrdersRepository {
   public async findById(id: string): Promise<Order | undefined> {
     const order = this.findOne({
       where: {
