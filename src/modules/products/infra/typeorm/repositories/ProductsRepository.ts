@@ -34,7 +34,7 @@ class ProductsRepository implements IProductsRepository {
     await this.ormRepository.remove(product);
   }
 
-  public async findAll(): Promise<IProduct[]> {
+  public async findAll(): Promise<Product[]> {
     const products = await this.ormRepository.find();
 
     return products;
