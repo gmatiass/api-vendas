@@ -4,8 +4,8 @@ import crypto from 'crypto';
 
 interface IUploadConfig {
   driver: 's3' | 'disk';
+  tmpFolder: string;
   directory: string;
-  tempFolder: string;
   multer: {
     storage: StorageEngine;
   };
@@ -17,15 +17,15 @@ interface IUploadConfig {
 }
 
 const uploadFolder = path.resolve(__dirname, '..', '..', 'uploads');
-const tempFolder = path.resolve(__dirname, '..', '..', 'temp');
+const tmpFolder = path.resolve(__dirname, '..', '..', 'temp');
 
 export default {
   driver: process.env.STORAGE_DRIVER,
   directory: uploadFolder,
-  tempFolder,
+  tmpFolder,
   multer: {
     storage: multer.diskStorage({
-      destination: uploadFolder,
+      destination: tmpFolder,
       filename(request, file, callback) {
         const fileHash = crypto.randomBytes(10).toString('hex');
 

@@ -34,8 +34,6 @@ class UpdateUserAvatarService {
       user.avatar = filename;
     } else {
       const diskProvider = new DiskStorageProvider();
-      //Debugs de upload de arquivos
-      //console.log(user.avatar);
 
       if (user.avatar) {
         await diskProvider.deleteFile(user.avatar);
@@ -45,9 +43,6 @@ class UpdateUserAvatarService {
     }
 
     await this.usersRepository.save(user);
-
-    //Debugs de upload de arquivos
-    //console.log(user);
 
     return user;
   }
