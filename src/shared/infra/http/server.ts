@@ -10,14 +10,14 @@ import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 import { pagination } from 'typeorm-pagination';
 import express, { NextFunction, Request, Response } from 'express';
-import rateLimiter from '@shared/infra/http/middlewares/rateLimiter';
+// import rateLimiter from '@shared/infra/http/middlewares/rateLimiter';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use(rateLimiter);
+// app.use(rateLimiter);
 
 app.use(pagination);
 
