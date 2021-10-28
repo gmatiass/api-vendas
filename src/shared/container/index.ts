@@ -10,6 +10,8 @@ import { IUserTokensRepository } from '@modules/users/domain/repositories/IUserT
 import { UserTokensRepository } from '@modules/users/infra/typeorm/repositories/UserTokensRepository';
 
 import '@modules/users/providers';
+import { IHashProvider } from '@modules/users/providers/HashProvider/models/IHashProvider';
+import BcryptHashProvider from '@modules/users/providers/HashProvider/implementations/BcryptHashProvider';
 
 container.registerSingleton<ICustomersRepository>(
   'CustomersRepository',
@@ -30,3 +32,5 @@ container.registerSingleton<IUserTokensRepository>(
   'UserTokensRepository',
   UserTokensRepository,
 );
+
+container.registerSingleton<IHashProvider>('HashProvider', BcryptHashProvider);

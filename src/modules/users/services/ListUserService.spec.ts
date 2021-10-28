@@ -1,4 +1,3 @@
-import { IUser } from '../domain/models/IUser';
 import FakeUsersRepository from '../domain/repositories/fakes/FakeUsersRepository';
 import ListUserService from './ListUserService';
 
