@@ -59,7 +59,7 @@ describe('ResetPassword', () => {
 
     const userToken = await fakeUserTokensRepository.generate(user.id);
 
-    userToken.created_at = subHours(userToken.created_at, 4);
+    userToken.created_at = subHours(userToken.created_at, 6);
 
     expect(
       resetPassword.execute({
