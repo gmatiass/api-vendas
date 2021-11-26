@@ -31,4 +31,4 @@ yarn dev
 
 This software was created for study purposes only.
 
-### This project is 100% open source, feel free to contribute
+### This project is 100% open source, feel free to contribute.
